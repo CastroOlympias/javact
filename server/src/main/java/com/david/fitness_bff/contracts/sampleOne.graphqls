@@ -1,0 +1,12 @@
+type SampleOneData {
+    id: ID!
+    value: String!
+}
+
+type Query {
+    getSampleOne(id: ID!): SampleOneData
+}
+
+type Mutation {
+    createSampleOne(value: String!): SampleOneData
+}

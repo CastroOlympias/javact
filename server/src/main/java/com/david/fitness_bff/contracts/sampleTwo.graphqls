@@ -1,0 +1,12 @@
+type SampleTwoData {
+    id: ID!
+    flag: Boolean!
+}
+
+extend type Query {
+    getSampleTwo(id: ID!): SampleTwoData
+}
+
+extend type Mutation {
+    toggleSampleTwo(id: ID!): SampleTwoData
+}

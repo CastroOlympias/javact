@@ -1,0 +1,26 @@
+{
+  "name": "javular",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:backend": "server\\mvnw -f server/pom.xml spring-boot:run",
+    "start:frontend": "npm start --prefix client",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CastroOlympias/java_angular.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/CastroOlympias/java_angular/issues"
+  },
+  "homepage": "https://github.com/CastroOlympias/java_angular#readme",
+  "devDependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
