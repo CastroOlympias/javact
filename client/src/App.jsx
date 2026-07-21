@@ -1,14 +1,34 @@
+import React from 'react';
+import { useQuery } from "@apollo/client/react";
+import { gql } from "@apollo/client"
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 
+const GET_SAMPLE_ONE = gql`
+  query GetSampleOne($id: ID!) {
+    getSampleOne(id: $id) {
+      id
+      value
+    }
+  }
+`;
+
 function App() {
   const [count, setCount] = useState(0)
 
+  const { data, loading, error } = useQuery(GET_SAMPLE_ONE, {
+    variables: { id: '1' },
+  });
+
+  console.log(data)
+
   return (
     <>
+
+
       <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />

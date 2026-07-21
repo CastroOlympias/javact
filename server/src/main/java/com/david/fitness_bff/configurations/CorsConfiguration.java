@@ -13,10 +13,11 @@ public class CorsConfiguration {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                // Instantly allow your local Angular client to communicate safely
                 registry.addMapping("/graphql")
-                        .allowedOrigins("http://localhost:4200")
-                        .allowedMethods("POST", "GET", "OPTIONS");
+                        // 💡 Updated from 4200 -> 5173 for Vite + React
+                        .allowedOrigins("http://localhost:5173", "http://localhost:4200")
+                        .allowedMethods("POST", "GET", "OPTIONS")
+                        .allowedHeaders("*");
             }
         };
     }

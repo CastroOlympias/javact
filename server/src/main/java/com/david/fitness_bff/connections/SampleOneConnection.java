@@ -22,13 +22,14 @@ public class SampleOneConnection {
     @QueryMapping
     public DTO.SampleOneData getSampleOne(@Argument String id) {
         String sql = "SELECT id, db_value FROM sample_table WHERE id = ?";
-        
+
+        System.out.println(">>> 📥 Incoming GraphQL Query Argument 'id': " + id);
+
         try {
             // Directly querying the database and map to the model shape
             SampleOneModel dbModel = jdbcTemplate.queryForObject(sql, (rs, rowNum) -> new SampleOneModel(
-                rs.getLong("id"),
-                rs.getString("db_value")
-            ), Long.parseLong(id));
+                    rs.getLong("id"),
+                    rs.getString("db_value")), Long.parseLong(id));
 
             return new DTO.SampleOneData(dbModel.getId().toString(), dbModel.getDbValue());
         } catch (Exception e) {
@@ -41,13 +42,12 @@ public class SampleOneConnection {
     @MutationMapping
     public DTO.SampleOneData createSampleOne(@Argument String value) {
         String insertSql = "INSERT INTO sample_table (db_value) VALUES (?) RETURNING id, db_value";
-        
+
         try {
             // Directly writing to the database
             SampleOneModel newDbModel = jdbcTemplate.queryForObject(insertSql, (rs, rowNum) -> new SampleOneModel(
-                rs.getLong("id"),
-                rs.getString("db_value")
-            ), value);
+                    rs.getLong("id"),
+                    rs.getString("db_value")), value);
 
             return new DTO.SampleOneData(newDbModel.getId().toString(), newDbModel.getDbValue());
         } catch (Exception e) {
