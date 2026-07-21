@@ -23,7 +23,8 @@ public class SampleOneConnection {
     public DTO.SampleOneData getSampleOne(@Argument String id) {
         String sql = "SELECT id, db_value FROM sample_table WHERE id = ?";
 
-        System.out.println(">>> 📥 Incoming GraphQL Query Argument 'id': " + id);
+        // Clean console log string
+        System.out.println(">>> [QUERY] Incoming 'id': " + id);
 
         try {
             // Directly querying the database and map to the model shape
