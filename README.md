@@ -1,1 +1,1 @@
-# java_angular aka Coined my own term 07/16/2026 for this Stack, Javular. C4 Architecture is also mine derving from My Node.js, Express 5, Apollo Server 5, mongoose, MongoDB, React, Apollo Client, GraphQL stack. C4 = Collections, Connections, Crontracts, and Configurations.
+# java_react aka Coined my own term 07/20/2026 for this Stack, Javact. C4 Architecture is also mine derving from My Node.js, Express 5, Apollo Server 5, mongoose, MongoDB, React, Apollo Client, GraphQL stack. C4 = Collections, Connections, Crontracts, and Configurations.
